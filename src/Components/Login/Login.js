@@ -11,7 +11,7 @@ export default class Login extends Component {
     }
 
     validateEmail(email){
-        if (email.includes('@usc.salvationarmy.org')){
+        if (email.includes('_') && email.includes('@usc.salvationarmy.org')){
             this.setState({
                 valid: true,
                 email
@@ -22,10 +22,13 @@ export default class Login extends Component {
     render(){
         return (
             <div className="login-wrapper">
-                <div className="login-title">Enter Lotus Notes Email to Continue</div>
+                <div className="margin title">Enter Lotus Notes Email to Continue</div>
+                <div className="button" onClick={()=> this.props.validEmail('Frank_Robenalt@usc.salvationarmy.org')}>Skip</div>
                 <input className="login-input" type="text" onChange={(e)=>this.validateEmail(e.target.value)} />
-                { this.state.valid &&
-                <div className="login-button" onClick={()=> this.props.validEmail(this.state.email)}>Continue</div>
+                { this.state.valid ?
+                <div className="button" onClick={()=> this.props.validEmail(this.state.email)}>Continue</div>
+                :
+                <div className="button-disabled">Continue</div>
                 }
             </div>
         )

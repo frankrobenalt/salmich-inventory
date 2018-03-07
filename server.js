@@ -5,17 +5,20 @@ const session = require("express-session");
 const massive = require("massive");
 const cors = require("cors");
 const bodyParser = require("body-parser");
+const path = require("path");
 const { json } = require("body-parser");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 const app = express();
 
+app.engine('html', require('ejs').renderFile);
+
 app.use(cors());
 app.use(cookieParser());
 
-// uncomment out and get rid of /build in .gitignore
+// uncomment this out and get rid of /build in .gitignore
 // app.use(express.static(`${__dirname}/build`)); 
-
+app.use(express.static(`${__dirname}/public`));
 app.use(flash());
 
 const connectionString = process.env.DATABASE_URL;
