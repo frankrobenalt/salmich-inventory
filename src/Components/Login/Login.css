@@ -1,0 +1,27 @@
+.login-wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'trajan-pro-3', Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.login-title {
+    font-size: 25px;
+    margin: 20px auto;
+}
+
+.login-input {
+    padding: 10px;
+    font-size: 20px;
+}
+
+.login-button {
+    padding: 10px;
+    color: white;
+    background-color: red;
+    margin: 20px auto;
+    cursor: pointer;
+}
